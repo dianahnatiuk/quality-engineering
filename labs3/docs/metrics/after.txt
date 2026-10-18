@@ -1,0 +1,48 @@
+Method                                            Line  Lines  Cyclo  Cogn
+----------------------------------------------------------------------------
+LoadTest.main()                                     41      6      4     3 
+LoadTest.run()                                      49      6      1     0 
+LoadTest.generateLoad()                             58     15      2     1 
+LoadTest.runVirtualUser()                           74     10      2     1 
+LoadTest.sendRequest()                              85     11      2     1 
+LoadTest.pauseForThinkTime()                        97     11      3     2 
+LoadTest.summarize()                               111     18      1     0 
+LoadTest.meetsSlo()                                130      3      2     1 
+LoadTest.errorRate()                               134      6      2     1 
+LoadTest.throughput()                              141      6      2     1 
+LoadTest.average()                                 148      3      1     0 
+LoadTest.percentile()                              152     12      3     2 
+LoadTest.printReport()                             167     14      2     1 
+LoadTest.Recorder.nextRequestId()                  190      3      1     0 
+LoadTest.Recorder.record()                         194      6      2     1 
+CallResult.CallResult()                             13     10      1     0 
+CallResult.toString()                               24      6      1     0 
+DependencyError.DependencyError()                    8      3      1     0 
+DependencyError.DependencyError()                   12      3      1     0 
+ResilienceConfig.ResilienceConfig()                 32      9      1     0 
+ResilienceConfig.defaults()                         43     10      1     0 
+ResilientPricingClient.ResilientPricingClient()     37      9      2     2 
+ResilientPricingClient.ResilientPricingClient()     47      6      1     0 
+ResilientPricingClient.getPrice()                   54     52      7    11 
+ResilientPricingClient.elapsedMs()                 107      3      1     0 
+ExternalService.main()                              43      4      2     1 
+ExternalService.start()                             51     11      1     0 
+ExternalService.stop()                              64      4      3     2 
+ExternalService.PriceHandler.handle()               70     24      4     3 
+ExternalService.ControlHandler.handle()             97     13      4     5 
+ExternalService.extract()                          112      7      1     0 
+ExternalService.extractRaw()                       120     14      5     4 
+ExternalService.respond()                          135      8      1     0 
+MainService.main()                                  58      4      2     1 
+MainService.start()                                 66     13      1     0 
+MainService.stop()                                  81      4      3     2 
+MainService.callPricingDependency()                 87     18      4     3 
+MainService.parsePrice()                           108      7      2     1 
+MainService.OrderHandler.handle()                  117     22      2     2 
+MainService.ControlHandler.handle()                142     10      3     3 
+MainService.escape()                               154      3      2     1 
+MainService.respond()                              158      8      1     0 
+----------------------------------------------------------------------------
+Methods: 42 | max Cognitive: 11 | max Cyclomatic: 7 | sum Cognitive: 56 | sum Cyclomatic: 88
+Thresholds: Cognitive <= 15, Cyclomatic <= 10
+QUALITY GATE: PASS
