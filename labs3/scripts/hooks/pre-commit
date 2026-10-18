@@ -1,7 +1,8 @@
 #!/bin/sh
-# Pre-commit hook: блокує коміт, якщо staged-зміни містять секрети (Gitleaks).
-# Встановлення (одноразово):  scripts\install-hooks.cmd   або   sh scripts/install-hooks.sh
-# Механізм: git config core.hooksPath scripts/hooks
+# Pre-commit hook (Лаб. №3): блокує коміт, якщо staged-зміни містять секрети (Gitleaks).
+# Проєкт лежить у папці labs3/ спільного репозиторію, тому конфіг шукається відносно кореня репозиторію.
+# Підключення (один раз):  labs3\scripts\install-hooks.cmd   -> git config core.hooksPath labs3/scripts/hooks
+CONFIG="labs3/.gitleaks.toml"
 
 if ! command -v gitleaks >/dev/null 2>&1; then
   echo "[pre-commit] ПОМИЛКА: gitleaks не знайдено в PATH. Встановіть Gitleaks (див. README.md)."
@@ -10,9 +11,9 @@ fi
 
 echo "[pre-commit] Gitleaks: перевірка staged-змін..."
 if gitleaks git --help >/dev/null 2>&1; then
-  gitleaks git --pre-commit --staged --redact --verbose --config .gitleaks.toml
+  gitleaks git --pre-commit --staged --redact --verbose --config "$CONFIG"
 else
-  gitleaks protect --staged --redact --verbose --config .gitleaks.toml
+  gitleaks protect --staged --redact --verbose --config "$CONFIG"
 fi
 RC=$?
 

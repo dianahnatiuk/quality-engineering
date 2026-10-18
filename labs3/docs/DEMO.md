@@ -1,13 +1,15 @@
 # Сценарій захисту (5 хвилин)
 
+Усі команди виконуються з папки проєкту: `cd labs3` (репозиторій спільний із Лаб. №2, тому теги мають префікс `lab3-`).
+
 Усі інструменти встановлено заздалегідь: `mvn`, `osv-scanner`, `gitleaks`; hook підключено (`scripts\install-hooks.cmd`).
 Повернутися на робочу гілку після `git checkout <tag>`: `git checkout main`.
 
 ## Крок 1. Measurable Refactoring Diff (~1,5 хв)
 ```
 git log --oneline
-git diff refactor-before refactor-after --stat
-git checkout refactor-before
+git diff lab3-refactor-before lab3-refactor-after --stat -- .
+git checkout lab3-refactor-before
 java -Dstdout.encoding=UTF-8 tools/ComplexityMeter.java src/main/java --only LoadTest     # run(): Cognitive 25, Cyclomatic 11
 git checkout main
 java -Dstdout.encoding=UTF-8 tools/ComplexityMeter.java src/main/java --only LoadTest     # run(): Cognitive 0, max у класі 3
@@ -19,7 +21,7 @@ mvn test                                                                        
 
 ## Крок 2. SCA Security Audit (~1,5 хв)
 ```
-git checkout sca-before
+git checkout lab3-sca-before
 scripts\sca-audit.cmd          # log4j-core 2.14.1 -> Critical CVE-2021-44228 (див. docs/sca/TRIAGE.md)
 git checkout main
 scripts\sca-audit.cmd          # після оновлення до 2.24.3
@@ -39,7 +41,7 @@ git add -A
 git commit -m "fix: read pricing key from environment"   # hook -> PASS
 scripts\secret-scan.cmd history                 # секрету в історії немає
 ```
-Після демонстрації повернути чистий стан: `git reset --hard secrets-ready` і видалити `.env`.
+Після демонстрації повернути чистий стан: `git reset --hard lab3-ready` і видалити `.env`.
 
 ## Типові запитання
 - **Cyclomatic vs Cognitive?** Cyclomatic рахує незалежні шляхи (кожна гілка/цикл/&&/||, +1) і не враховує

@@ -13,7 +13,7 @@
 | `org.junit.jupiter:junit-jupiter` (+ api, params, engine) | test | direct / transitive |
 | `org.junit.platform:*`, `org.opentest4j:opentest4j`, `org.apiguardian:apiguardian-api` | test | transitive |
 
-## 2. Первинне сканування (стан `sca-before`: `log4j.version = 2.14.1`)
+## 2. Первинне сканування (стан `lab3-sca-before`: `log4j.version = 2.14.1`)
 
 Заповніть за власним звітом `reports\osv-report.json` / консольним виводом:
 
@@ -49,7 +49,7 @@ log.warn("Attempt " + attempts + "/" + ... + " failed for " + itemId + ": " + la
 `log4j.version`: `2.14.1` → `2.24.3` (коміт `fix(security): upgrade log4j`). API, який використовує проєкт
 (`LogManager.getLogger`, `info/warn/error`), не змінився, тому код не редагується.
 
-### Повторне сканування (стан `sca-after`)
+### Повторне сканування (стан `lab3-sca-after`)
 Очікувано: Critical/High відсутні. Якщо сканер показує нові (пізніші) advisory для обраної версії —
 або підніміть версію до найновішої 2.x, або оформіть **прийняття ризику** за шаблоном нижче.
 

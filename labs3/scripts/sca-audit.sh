@@ -2,6 +2,7 @@
 # SCA-аудит залежностей: OSV-Scanner + Maven dependency:tree.
 # Запуск з кореня проєкту:  sh scripts/sca-audit.sh
 # Код завершення: 0 = вразливостей немає, 1 = знайдено вразливості.
+cd "$(dirname "$0")/.." || exit 2
 mkdir -p reports
 
 echo "[1/3] Дерево залежностей (direct / transitive):"

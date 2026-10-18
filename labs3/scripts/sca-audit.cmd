@@ -6,6 +6,7 @@ REM  Запуск з кореня проєкту:   scripts\sca-audit.cmd
 REM  Код завершення: 0 = вразливостей немає, 1 = знайдено вразливості
 REM ============================================================
 setlocal
+cd /d "%~dp0.."
 if not exist reports mkdir reports
 
 echo [1/3] Дерево залежностей (direct / transitive):

@@ -1,5 +1,8 @@
 # Лабораторна №3: Maintainability Refactoring та Software Supply Chain Security
 
+> Проєкт лежить у папці `labs3/` спільного репозиторію (Лаб. №2 — у корені). Усі команди нижче виконуються
+> з папки `labs3` (`cd labs3`), окрім `git`-команд, які працюють у всьому репозиторії.
+
 Навчальний сервіс замовлень (`GET /api/order/{id}` + зовнішня залежність Pricing Service) із Лабораторної №2,
 розширений для Лабораторної №3. Стек: **Java 21+, Maven, JUnit 5, Log4j 2**.
 
@@ -32,11 +35,11 @@ docs/DEMO.md                     сценарій захисту на 5 хвил
 ## Git-теги (стани для демонстрації)
 | Тег | Стан |
 |---|---|
-| `refactor-before` | вихідний код + захисні тести + baseline-метрики |
-| `refactor-after`  | після рефакторингу `LoadTest.run()` |
-| `sca-before`      | залежність `log4j-core 2.14.1` (вразлива) |
-| `sca-after`       | `log4j 2.24.3` |
-| `secrets-ready`   | secret scanner, hook і безпечна конфігурація налаштовані |
+| `lab3-refactor-before` | вихідний код + захисні тести + baseline-метрики |
+| `lab3-refactor-after`  | після рефакторингу `LoadTest.run()` |
+| `lab3-sca-before`      | залежність `log4j-core 2.14.1` (вразлива) |
+| `lab3-sca-after`       | `log4j 2.24.3` |
+| `lab3-secrets-ready`   | secret scanner, hook і безпечна конфігурація налаштовані |
 
 ## Команди
 ```
@@ -44,7 +47,7 @@ mvn test                                                         # усі тес
 java -Dstdout.encoding=UTF-8 tools/ComplexityMeter.java src/main/java            # метрики складності
 java -Dstdout.encoding=UTF-8 tools/ComplexityMeter.java src/main/java --fail-over # quality gate (код 1, якщо Cognitive>15 або Cyclomatic>10)
 scripts\sca-audit.cmd                                            # SCA (Windows);  sh scripts/sca-audit.sh (Linux/macOS)
-scripts\install-hooks.cmd                                        # підключити pre-commit hook (один раз)
+scripts\install-hooks.cmd                                        # підключити pre-commit hook (core.hooksPath = labs3/scripts/hooks)
 scripts\secret-scan.cmd staged | history                         # ручна перевірка секретів
 ```
 

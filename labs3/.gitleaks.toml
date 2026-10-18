@@ -15,6 +15,6 @@ keywords = ["pricing"]
 description = "Файли, що за дизайном не містять реальних значень"
 paths = [
   '''(^|/)\.env\.example$''',
-  '''^docs/''',
-  '''^\.gitleaks\.toml$''',
+  '''(^|/)docs/''',
+  '''(^|/)\.gitleaks\.toml$''',
 ]
