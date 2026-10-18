@@ -3,6 +3,7 @@ package lab2.service;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import lab2.config.PricingClientConfig;
 import lab2.resilience.CallResult;
 import lab2.resilience.DependencyError;
 import lab2.resilience.ResilienceConfig;
@@ -86,11 +87,13 @@ public final class MainService {
     /** Реальний виклик залежності через java.net.http.HttpClient. */
     private double callPricingDependency(String itemId, long timeoutMs) throws DependencyError {
         try {
-            HttpRequest request = HttpRequest.newBuilder()
+            HttpRequest.Builder builder = HttpRequest.newBuilder()
                     .uri(URI.create("http://" + EXTERNAL_HOST + ":" + EXTERNAL_PORT + "/price/" + itemId))
                     .timeout(Duration.ofMillis(timeoutMs))
-                    .GET()
-                    .build();
+                    .GET();
+            // ключ — лише зі змінної середовища PRICING_API_KEY (див. .env.example)
+            PricingClientConfig.apiKey().ifPresent(key -> builder.header("X-Api-Key", key));
+            HttpRequest request = builder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() >= 500) {
                 throw new DependencyError("HTTP " + response.statusCode() + " from pricing service");
