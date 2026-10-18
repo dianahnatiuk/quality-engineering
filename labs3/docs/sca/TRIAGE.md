@@ -46,7 +46,7 @@ log.warn("Attempt " + attempts + "/" + ... + " failed for " + itemId + ": " + la
 але не усуває ризик — достатніх компенсувальних заходів немає.
 
 ### Рішення: **оновити залежність**
-`log4j.version`: `2.14.1` → `2.24.3` (комміт `fix(security): upgrade log4j`). API, який використовує проєкт
+`log4j.version`: `2.14.1` → `2.24.3` (коміт `fix(security): upgrade log4j`). API, який використовує проєкт
 (`LogManager.getLogger`, `info/warn/error`), не змінився, тому код не редагується.
 
 ### Повторне сканування (стан `sca-after`)
