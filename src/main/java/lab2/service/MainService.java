@@ -1,12 +1,12 @@
-package main.java.lab2.service;
+package lab2.service;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import main.java.lab2.resilience.CallResult;
-import main.java.lab2.resilience.DependencyError;
-import main.java.lab2.resilience.ResilienceConfig;
-import main.java.lab2.resilience.ResilientPricingClient;
+import lab2.resilience.CallResult;
+import lab2.resilience.DependencyError;
+import lab2.resilience.ResilienceConfig;
+import lab2.resilience.ResilientPricingClient;
 
 import java.io.IOException;
 import java.io.OutputStream;

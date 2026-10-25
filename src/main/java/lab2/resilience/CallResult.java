@@ -1,4 +1,4 @@
-package main.java.lab2.resilience;
+package lab2.resilience;
 
 /** Результат виконання захищеного виклику зовнішньої залежності. */
 public final class CallResult {

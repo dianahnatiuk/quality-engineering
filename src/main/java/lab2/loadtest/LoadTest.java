@@ -1,4 +1,4 @@
-package main.java.lab2.loadtest;
+package lab2.loadtest;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -21,20 +21,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * доступу до мережі для встановлення k6/JMeter. Запускається однією
  * командою, не потребує ручного підрахунку результатів: сам обчислює
  * p50/p90/p95/p99, RPS, Error Rate і виносить вердикт PASS/FAIL.
- *
- * <p>Використання:
- * <pre>
- *   java -cp out lab2.loadtest.LoadTest 10  5 "normal"
- *   java -cp out lab2.loadtest.LoadTest 60  5 "increased"
- * </pre>
- * (аргументи: VUs, тривалість у секундах, мітка прогону)
- *
- * <p>SLO (обґрунтування наведено в звіті):
- * <pre>
- *   p95 response time &lt;= 250 ms
- *   Error Rate        &lt;  1 %
- * </pre>
  */
+
 public final class LoadTest {
 
     private static final String HOST = "127.0.0.1";
@@ -47,7 +35,7 @@ public final class LoadTest {
     private static final long ITERATION_PACING_MS = 100;
 
     public static void main(String[] args) throws Exception {
-        int vus = args.length > 0 ? Integer.parseInt(args[0]) : 10;
+        int vus = args.length > 0 ? Integer.parseInt(args[0]) : 8;
         int durationS = args.length > 1 ? Integer.parseInt(args[1]) : 5;
         String label = args.length > 2 ? args[2] : "run";
         run(vus, durationS, label);

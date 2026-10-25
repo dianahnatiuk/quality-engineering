@@ -1,8 +1,8 @@
-package test.java.lab2;
+package lab2;
 
-import main.java.lab2.loadtest.LoadTest;
-import main.java.lab2.service.ExternalService;
-import main.java.lab2.service.MainService;
+import lab2.loadtest.LoadTest;
+import lab2.service.ExternalService;
+import lab2.service.MainService;
 
 import java.io.PrintStream;
 import java.net.URI;
@@ -32,7 +32,7 @@ public final class FullScenarioRunner {
         String M = "http://127.0.0.1:9000", E = "http://127.0.0.1:9001";
 
         System.out.println("##### TASK 1: LOAD TESTS #####");
-        LoadTest.run(8, 4, "normal load (8 VUs)");
+        LoadTest.run(8, 5, "normal load (8 VUs)");
         LoadTest.run(100, 4, "increased load (100 VUs)");
 
         System.out.println("\n##### TASK 2: FAULT INJECTION #####");

@@ -1,4 +1,4 @@
-package main.java.lab2.resilience;
+package lab2.resilience;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

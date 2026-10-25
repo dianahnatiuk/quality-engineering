@@ -1,4 +1,4 @@
-package main.java.lab2.resilience;
+package lab2.resilience;
 
 /**
  * Піднімається реалізацією {@link DependencyCall}, коли зовнішня залежність

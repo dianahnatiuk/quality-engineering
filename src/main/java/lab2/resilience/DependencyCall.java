@@ -1,4 +1,4 @@
-package main.java.lab2.resilience;
+package lab2.resilience;
 
 /**
  * Абстракція виклику зовнішньої залежності (Pricing Service), незалежна від

@@ -1,4 +1,4 @@
-package main.java.lab2.resilience;
+package lab2.resilience;
 
 /**
  * Параметри механізму стійкості. Винесені в окремий клас (а не "магічні

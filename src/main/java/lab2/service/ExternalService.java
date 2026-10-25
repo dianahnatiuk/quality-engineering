@@ -1,4 +1,4 @@
-package main.java.lab2.service;
+package lab2.service;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -30,6 +30,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * SLO навантажувального тесту (p95) порушується — це відтворюваний
  * bottleneck для Завдання №1 (сценарій FAIL).
  */
+
 public final class ExternalService {
 
     private static final int DB_POOL_SIZE = 4;

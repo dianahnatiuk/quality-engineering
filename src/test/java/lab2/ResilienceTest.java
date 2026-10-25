@@ -1,9 +1,9 @@
-package test.java.lab2;
+package lab2;
 
-import main.java.lab2.resilience.CallResult;
-import main.java.lab2.resilience.DependencyError;
-import main.java.lab2.resilience.ResilienceConfig;
-import main.java.lab2.resilience.ResilientPricingClient;
+import lab2.resilience.CallResult;
+import lab2.resilience.DependencyError;
+import lab2.resilience.ResilienceConfig;
+import lab2.resilience.ResilientPricingClient;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
