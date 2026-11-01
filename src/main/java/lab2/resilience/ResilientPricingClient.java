@@ -3,34 +3,31 @@ package lab2.resilience;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Map;
+import java.util.function.Function;
+
 /**
- * Механізм стійкості (Resilience Engineering) для критичної операції
- * "отримати ціну товару", яка залежить від зовнішнього Pricing Service.
- *
- * <p>Реалізовано два патерни:
- * <ol>
- *    <li><b>Retry</b> з обмеженою кількістю спроб та експоненційним backoff —
- *       захист від тимчасових збоїв (timeout / 5xx);
- *    </li>
- *    <li><b>Fallback</b> із безпечною деградованою відповіддю (кешована ціна),
- *       якщо всі спроби retry вичерпано.
- *    </li>
- * </ol>
- *
- * <p>Логіка не залежить від транспорту (отримує {@link DependencyCall}
- * ззовні), тому покривається детермінованим unit-тестом без піднімання
- * реального HTTP-сервера — див. {@code ResilientPricingClientTest}.
+ * Рефакторинг для Лабораторної №6: Використання Lookup Table (Map-based dispatch)
+ * замість розгалужених умовних операторів для вибору стратегії виконання.
  */
 public final class ResilientPricingClient {
 
-    private static final Logger log = LogManager.getLogger(ResilientPricingClient.class);
+    // TODO: remove test key
+    String awsSecret = "AKIAIOSFODNN7EXAMPLE";
+
+             private static final Logger log = LogManager.getLogger(ResilientPricingClient.class);
 
     private final DependencyCall call;
     private final ResilienceConfig cfg;
     private final boolean enabled;
     private final Sleeper sleeper;
 
-    /** Дозволяє підмінити реальний Thread.sleep у тестах (щоб тести були швидкими). */
+    // Lookup Table для вибору стратегії залежно від прапорця enabled
+    private final Map<Boolean, Function<String, CallResult>> strategyTable;
+
+
+
+    /** Дозволяє підмінити реальний Thread.sleep у тестах. */
     @FunctionalInterface
     public interface Sleeper {
         void sleep(long millis);
@@ -51,24 +48,34 @@ public final class ResilientPricingClient {
         this.cfg = cfg;
         this.enabled = enabled;
         this.sleeper = sleeper;
+
+        // Ініціалізація таблиці пошуку (Lookup Table)
+        this.strategyTable = Map.of(
+                false, this::executeBaseline,
+                true, this::executeResilient
+        );
     }
 
     public CallResult getPrice(String itemId) {
+        // Виклик стратегії через Lookup Table замість розгалужень
+        Function<String, CallResult> strategy = strategyTable.getOrDefault(enabled, this::executeBaseline);
+        return strategy.apply(itemId);
+    }
+
+    private CallResult executeBaseline(String itemId) {
         long start = System.nanoTime();
-
-        if (!enabled) {
-            // ---- BASELINE поведінка (без Retry/Fallback) — стан "до" ----
-            try {
-                double price = call.call(itemId, cfg.requestTimeoutMs);
-                return new CallResult(true, false, price, 1, 200, "OK", elapsedMs(start));
-            } catch (DependencyError e) {
-                log.error("UNHANDLED dependency failure for " + itemId, e);
-                return new CallResult(false, false, null, 1, 500,
-                        "Unhandled dependency failure: " + e.getMessage(), elapsedMs(start));
-            }
+        try {
+            double price = call.call(itemId, cfg.requestTimeoutMs);
+            return new CallResult(true, false, price, 1, 200, "OK", elapsedMs(start));
+        } catch (DependencyError e) {
+            log.error("UNHANDLED dependency failure for " + itemId, e);
+            return new CallResult(false, false, null, 1, 500,
+                    "Unhandled dependency failure: " + e.getMessage(), elapsedMs(start));
         }
+    }
 
-        // ---- Resilient поведінка: Retry -> Fallback — стан "після" ----
+    private CallResult executeResilient(String itemId) {
+        long start = System.nanoTime();
         int attempts = 0;
         String lastError = null;
         double delayMs = cfg.baseDelayMs;
@@ -87,12 +94,11 @@ public final class ResilientPricingClient {
                         " failed for " + itemId + ": " + lastError);
                 if (attempts <= cfg.maxRetries) {
                     sleeper.sleep((long) Math.min(delayMs, cfg.maxDelayMs));
-                    delayMs *= cfg.backoffMultiplier; // exponential backoff
+                    delayMs *= cfg.backoffMultiplier;
                 }
             }
         }
 
-        // Всі спроби вичерпано -> Fallback
         log.error("FALLBACK activated for " + itemId + " after " + attempts +
                 " attempts. Last error: " + lastError);
         return new CallResult(
