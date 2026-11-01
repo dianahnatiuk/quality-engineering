@@ -1,0 +1,36 @@
+Method                                            Line  Lines  Cyclo  Cogn
+----------------------------------------------------------------------------
+LoadTest.main()                                     49      6      4     3 
+LoadTest.run()                                      56     74     11    25   <-- перевищено
+LoadTest.percentile()                              131      7      3     2 
+CallResult.CallResult()                             13     10      1     0 
+CallResult.toString()                               24      6      1     0 
+DependencyError.DependencyError()                    8      3      1     0 
+DependencyError.DependencyError()                   12      3      1     0 
+ResilienceConfig.ResilienceConfig()                 32      9      1     0 
+ResilienceConfig.defaults()                         43     10      1     0 
+ResilientPricingClient.ResilientPricingClient()     37      9      2     2 
+ResilientPricingClient.ResilientPricingClient()     47      6      1     0 
+ResilientPricingClient.getPrice()                   54     52      7    11 
+ResilientPricingClient.elapsedMs()                 107      3      1     0 
+ExternalService.main()                              43      4      2     1 
+ExternalService.start()                             51     11      1     0 
+ExternalService.stop()                              64      4      3     2 
+ExternalService.PriceHandler.handle()               70     24      4     3 
+ExternalService.ControlHandler.handle()             97     13      4     5 
+ExternalService.extract()                          112      7      1     0 
+ExternalService.extractRaw()                       120     14      5     4 
+ExternalService.respond()                          135      8      1     0 
+MainService.main()                                  58      4      2     1 
+MainService.start()                                 66     13      1     0 
+MainService.stop()                                  81      4      3     2 
+MainService.callPricingDependency()                 87     18      4     3 
+MainService.parsePrice()                           108      7      2     1 
+MainService.OrderHandler.handle()                  117     22      2     2 
+MainService.ControlHandler.handle()                142     10      3     3 
+MainService.escape()                               154      3      2     1 
+MainService.respond()                              158      8      1     0 
+----------------------------------------------------------------------------
+Methods: 30 | max Cognitive: 25 | max Cyclomatic: 11 | sum Cognitive: 71 | sum Cyclomatic: 76
+Thresholds: Cognitive <= 15, Cyclomatic <= 10
+QUALITY GATE: WARN (поріг перевищено)

@@ -1,0 +1,10 @@
+Method                                            Line  Lines  Cyclo  Cogn
+----------------------------------------------------------------------------
+ResilientPricingClient.ResilientPricingClient()     37      9      2     2 
+ResilientPricingClient.ResilientPricingClient()     47      6      1     0 
+ResilientPricingClient.getPrice()                   54     52      7    11 
+ResilientPricingClient.elapsedMs()                 107      3      1     0 
+----------------------------------------------------------------------------
+Methods: 4 | max Cognitive: 11 | max Cyclomatic: 7 | sum Cognitive: 13 | sum Cyclomatic: 11
+Thresholds: Cognitive <= 15, Cyclomatic <= 10
+QUALITY GATE: PASS

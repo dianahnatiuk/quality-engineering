@@ -1,0 +1,310 @@
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xCC) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+   ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE5) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+    ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF5) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+     ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE0) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEDB3) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+       ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE7) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+        ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEC) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF1) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF2B3) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+            ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE9) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEA) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+              ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEE) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+               ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF1) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF2B3) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                 ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE4) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                            ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEB) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xFF) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                              ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEA) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF0) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                 ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE8) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                  ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF2) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                   ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE8) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                    ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF7) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                     ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xED) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEEBF) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                       ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEE) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xEF) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                          ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE5) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF0) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                            ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xE0) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xF6) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                              ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xB3) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                               ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:7: error: unmappable character (0xBF) for encoding UTF-8
+ * ������� ������� (Resilience Engineering) ��� �������� ��������
+                                                                ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEE) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+    ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF2) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+     ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF0) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE8) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+       ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEC) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+        ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE0) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF2) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+          ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE8) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF6) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xB3) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+              ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xED) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+               ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF3) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF2) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                  ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEE) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                   ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE2) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                    ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE0) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                     ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF0) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF3) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                       ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xFF) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEA) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                            ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE0) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE7) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                               ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE0) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEB) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                 ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE5) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                  ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE6) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                   ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE8) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                    ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF2) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                     ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xFC) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE2B3) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                        ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE4) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE7) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEE) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                            ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE2) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEDB3) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                              ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xF8) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                               ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xED) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                                ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xFC) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                                 ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEE) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                                  ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xE3) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                                   ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:8: error: unmappable character (0xEE) for encoding UTF-8
+ * "�������� ���� ������", ��� �������� �� ���������� Pricing Service.
+                                                    ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xD0) for encoding UTF-8
+ * <p>���������� ��� �������:
+      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE5) for encoding UTF-8
+ * <p>���������� ��� �������:
+       ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE0) for encoding UTF-8
+ * <p>���������� ��� �������:
+        ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xEBB3) for encoding UTF-8
+ * <p>���������� ��� �������:
+         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE7) for encoding UTF-8
+ * <p>���������� ��� �������:
+          ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xEE) for encoding UTF-8
+ * <p>���������� ��� �������:
+           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE2) for encoding UTF-8
+ * <p>���������� ��� �������:
+            ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE0) for encoding UTF-8
+ * <p>���������� ��� �������:
+             ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xED) for encoding UTF-8
+ * <p>���������� ��� �������:
+              ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xEE) for encoding UTF-8
+ * <p>���������� ��� �������:
+               ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE4) for encoding UTF-8
+ * <p>���������� ��� �������:
+                 ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE2) for encoding UTF-8
+ * <p>���������� ��� �������:
+                  ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE0) for encoding UTF-8
+ * <p>���������� ��� �������:
+                   ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xEF) for encoding UTF-8
+ * <p>���������� ��� �������:
+                     ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE0) for encoding UTF-8
+ * <p>���������� ��� �������:
+                      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xF2) for encoding UTF-8
+ * <p>���������� ��� �������:
+                       ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE5) for encoding UTF-8
+ * <p>���������� ��� �������:
+                        ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xF0) for encoding UTF-8
+ * <p>���������� ��� �������:
+                         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xED) for encoding UTF-8
+ * <p>���������� ��� �������:
+                          ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:10: error: unmappable character (0xE8) for encoding UTF-8
+ * <p>���������� ��� �������:
+                           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:12: error: unmappable character (0xE7) for encoding UTF-8
+ *   <li><b>Retry</b> � ��������� ������� ����� �� �������������� backoff �
+                      ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:12: error: unmappable character (0xEE) for encoding UTF-8
+ *   <li><b>Retry</b> � ��������� ������� ����� �� �������������� backoff �
+                        ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:12: error: unmappable character (0xE1) for encoding UTF-8
+ *   <li><b>Retry</b> � ��������� ������� ����� �� �������������� backoff �
+                         ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:12: error: unmappable character (0xEC) for encoding UTF-8
+ *   <li><b>Retry</b> � ��������� ������� ����� �� �������������� backoff �
+                          ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:12: error: unmappable character (0xE5) for encoding UTF-8
+ *   <li><b>Retry</b> � ��������� ������� ����� �� �������������� backoff �
+                           ^
+build/lab5/reliability/cp1251/ResilientPricingClient.java:12: error: unmappable character (0xE6) for encoding UTF-8
+ *   <li><b>Retry</b> � ��������� ������� ����� �� �������������� backoff �
+                            ^
+Method                                            Line  Lines  Cyclo  Cogn
+----------------------------------------------------------------------------
+ResilientPricingClient.ResilientPricingClient()     37      9      2     2 
+ResilientPricingClient.ResilientPricingClient()     47      6      1     0 
+ResilientPricingClient.getPrice()                   54     52      7    11 
+ResilientPricingClient.elapsedMs()                 107      3      1     0 
+----------------------------------------------------------------------------
+Methods: 4 | max Cognitive: 11 | max Cyclomatic: 7 | sum Cognitive: 13 | sum Cyclomatic: 11
+Thresholds: Cognitive <= 15, Cyclomatic <= 10
+QUALITY GATE: PASS

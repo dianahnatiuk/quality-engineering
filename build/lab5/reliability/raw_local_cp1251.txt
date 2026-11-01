@@ -1,0 +1,1 @@
+scripts/lab5/reliability.sh: line 41: java: command not found

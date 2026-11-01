@@ -1,0 +1,31 @@
+Unable to find image 'eclipse-temurin:23-jdk' locally
+23-jdk: Pulling from library/eclipse-temurin
+ea28f6f7f0aa: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+7b5a3507f742: Pulling fs layer
+d1504bee8985: Pulling fs layer
+5a7813e071bf: Pulling fs layer
+ea28f6f7f0aa: Already exists
+d1504bee8985: Already exists
+4f4fb700ef54: Already exists
+61c0f1b8cbb2: Download complete
+a3143a5f492f: Download complete
+5a7813e071bf: Download complete
+5a7813e071bf: Pull complete
+d1504bee8985: Pull complete
+7b5a3507f742: Already exists
+ea28f6f7f0aa: Pull complete
+4f4fb700ef54: Pull complete
+7b5a3507f742: Pull complete
+Digest: sha256:83177670e43c17769a5402a60601545318e45e63adf634fb5022340e516cded4
+Status: Downloaded newer image for eclipse-temurin:23-jdk
+Method                                            Line  Lines  Cyclo  Cogn
+----------------------------------------------------------------------------
+ResilientPricingClient.ResilientPricingClient()     37      9      2     2 
+ResilientPricingClient.ResilientPricingClient()     47      6      1     0 
+ResilientPricingClient.getPrice()                   54     52      7    11 
+ResilientPricingClient.elapsedMs()                 107      3      1     0 
+----------------------------------------------------------------------------
+Methods: 4 | max Cognitive: 11 | max Cyclomatic: 7 | sum Cognitive: 13 | sum Cyclomatic: 11
+Thresholds: Cognitive <= 15, Cyclomatic <= 10
+QUALITY GATE: PASS

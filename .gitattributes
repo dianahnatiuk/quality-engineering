@@ -1,0 +1,7 @@
+# ЛР№5: нормалізація кінців рядків — захист вимірювань від ефекту CRLF/LF між ОС
+* text=auto
+*.java text eol=lf
+*.sh   text eol=lf
+*.xml  text eol=lf
+*.md   text eol=lf
+*.cmd  text eol=crlf

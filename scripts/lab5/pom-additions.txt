@@ -1,0 +1,102 @@
+<!--
+  Лаб. №5, Завдання 2: Balanced Quality Gate.
+  Вставте ці <plugin> у <build><plugins> вашого pom.xml (поруч із maven-surefire-plugin).
+  Версії зафіксовано; перед використанням перевірте їх наявність у Maven Central (mvn -U verify).
+
+  Gate = (Line Coverage >= 80 %) AND (Mutation Score >= 65 %)  для пакета lab2.resilience.*
+  Обидві перевірки прив'язані до фази verify -> збірка падає, якщо порушено ХОЧА Б ОДНУ (логічне AND для PASS).
+  Запуск:  mvn clean verify
+  Звіти:   target/site/jacoco/index.html  та  target/pit-reports/index.html
+-->
+
+<!-- ПОТРІБНО ТАКОЖ додати у <properties> вашого pom.xml (щоб демо могло підміняти набір тестів Pitest):
+         <pit.tests>lab2.resilience.*</pit.tests>
+-->
+
+<!-- 0. Surefire: демо-тест "накрутки покриття" не входить у звичайний прогін (запускається лише через -Dtest=...) -->
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.2.5</version>
+    <configuration>
+        <excludes>
+            <exclude>**/CoverageGamingDemoTest.java</exclude>
+        </excludes>
+    </configuration>
+</plugin>
+
+<!-- 1. Метрика #1: Line Coverage (JaCoCo) -->
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.12</version>
+    <executions>
+        <execution>
+            <id>jacoco-agent</id>
+            <goals><goal>prepare-agent</goal></goals>
+        </execution>
+        <execution>
+            <id>jacoco-report</id>
+            <phase>verify</phase>
+            <goals><goal>report</goal></goals>
+        </execution>
+        <execution>
+            <id>jacoco-gate</id>
+            <phase>verify</phase>
+            <goals><goal>check</goal></goals>
+            <configuration>
+                <includes>
+                    <include>lab2/resilience/*</include>
+                </includes>
+                <rules>
+                    <rule>
+                        <element>BUNDLE</element>
+                        <limits>
+                            <limit>
+                                <counter>LINE</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>0.80</minimum>
+                            </limit>
+                        </limits>
+                    </rule>
+                </rules>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+<!-- 2. Метрика-балансир: Mutation Score (Pitest) -->
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.17.4</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+    </dependencies>
+    <configuration>
+        <targetClasses>
+            <param>lab2.resilience.*</param>
+        </targetClasses>
+        <targetTests>
+            <param>${pit.tests}</param>
+        </targetTests>
+        <mutationThreshold>65</mutationThreshold>
+        <outputFormats>
+            <param>HTML</param>
+            <param>XML</param>
+        </outputFormats>
+        <timestampedReports>false</timestampedReports>
+        <threads>2</threads>
+    </configuration>
+    <executions>
+        <execution>
+            <id>mutation-gate</id>
+            <phase>verify</phase>
+            <goals><goal>mutationCoverage</goal></goals>
+        </execution>
+    </executions>
+</plugin>

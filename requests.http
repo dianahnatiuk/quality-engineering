@@ -1,0 +1,54 @@
+### 0. Sanity check: normal call (both services must be running)
+GET http://127.0.0.1:9000/api/order/1
+
+### ==================== СЦЕНАРІЙ "ДО" (без захисту) ====================
+
+### 1. Вимкнути resilience на MainService
+POST http://127.0.0.1:9000/control
+Content-Type: application/json
+
+{"resilience": false}
+
+### 2. Увімкнути на ExternalService режим error500 (симуляція HTTP 5xx)
+POST http://127.0.0.1:9001/control
+Content-Type: application/json
+
+{"mode": "error500"}
+
+### 3. Викликати критичний ендпоінт -> очікується HTTP 500, Unhandled failure
+GET http://127.0.0.1:9000/api/order/1
+
+### ==================== СЦЕНАРІЙ "ПІСЛЯ" (з захистом) ====================
+
+### 4. Увімкнути resilience назад
+POST http://127.0.0.1:9000/control
+Content-Type: application/json
+
+{"resilience": true}
+
+### 5. Залежність усе ще падає (error500) -> тепер має спрацювати Retry -> Fallback
+###    Очікується: HTTP 200, degraded=true, price=9.99, attempts=4
+GET http://127.0.0.1:9000/api/order/1
+
+### ==================== Bonus: сценарій delay/timeout ====================
+
+### 6. Замість error500 -- повільна залежність (1500 мс)
+POST http://127.0.0.1:9001/control
+Content-Type: application/json
+
+{"mode": "delay", "delayMs": 1500}
+
+### 7. requestTimeoutMs=1000 в конфігу -> кожна спроба впаде по timeout,
+###    після 3 retry спрацює fallback (degraded=true)
+GET http://127.0.0.1:9000/api/order/2
+
+### ==================== Повернути все в норму ====================
+
+### 8. Повернути зовнішню залежність у нормальний режим
+POST http://127.0.0.1:9001/control
+Content-Type: application/json
+
+{"mode": "normal"}
+
+### 9. Перевірка: нормальна відповідь, degraded=false, attempts=1
+GET http://127.0.0.1:9000/api/order/3

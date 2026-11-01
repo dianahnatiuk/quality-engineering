@@ -1,0 +1,24 @@
+#!/bin/sh
+# Pre-commit hook: блокує коміт, якщо staged-зміни містять секрети (Gitleaks).
+# Встановлення (одноразово):  scripts\install-hooks.cmd   або   sh scripts/install-hooks.sh
+# Механізм: git config core.hooksPath scripts/hooks
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "[pre-commit] ПОМИЛКА: gitleaks не знайдено в PATH. Встановіть Gitleaks (див. README.md)."
+  exit 1
+fi
+
+echo "[pre-commit] Gitleaks: перевірка staged-змін..."
+if gitleaks git --help >/dev/null 2>&1; then
+  gitleaks git --pre-commit --staged --redact --verbose --config .gitleaks.toml
+else
+  gitleaks protect --staged --redact --verbose --config .gitleaks.toml
+fi
+RC=$?
+
+if [ "$RC" -ne 0 ]; then
+  echo "[pre-commit] SECRET SCAN: FAIL - коміт ЗАБЛОКОВАНО (код $RC)."
+  exit "$RC"
+fi
+echo "[pre-commit] SECRET SCAN: PASS"
+exit 0

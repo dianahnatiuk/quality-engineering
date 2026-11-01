@@ -1,0 +1,15 @@
+# Лаб. №5, Експеримент 2: ізольований раннер для динамічних метрик (ExternalService + MainService + LoadTest в одному контейнері).
+# Версії зафіксовано (pinning): жодних :latest.
+# Збірка з КОРЕНЯ проєкту:  docker build -f scripts/lab5/Dockerfile.stability -t lab5-stability .
+FROM maven:3.9.9-eclipse-temurin-21
+
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn -q -B -DskipTests compile dependency:copy-dependencies -DoutputDirectory=target/lib
+
+COPY scripts/lab5/stability-run.sh /app/stability-run.sh
+# Захист від CRLF після git checkout на Windows (інакше "bash\r: No such file")
+RUN sed -i 's/\r$//' /app/stability-run.sh && chmod +x /app/stability-run.sh
+
+ENTRYPOINT ["bash", "/app/stability-run.sh"]
