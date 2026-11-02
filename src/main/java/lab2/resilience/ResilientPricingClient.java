@@ -12,10 +12,7 @@ import java.util.function.Function;
  */
 public final class ResilientPricingClient {
 
-    // TODO: remove test key
-    String awsSecret = "AKIAIOSFODNN7EXAMPLE";
-
-             private static final Logger log = LogManager.getLogger(ResilientPricingClient.class);
+    private static final Logger log = LogManager.getLogger(ResilientPricingClient.class);
 
     private final DependencyCall call;
     private final ResilienceConfig cfg;
