@@ -90,6 +90,9 @@ public final class ResilientPricingClient {
                 log.warn("Attempt " + attempts + "/" + (cfg.maxRetries + 1) +
                         " failed for " + itemId + ": " + lastError);
                 if (attempts <= cfg.maxRetries) {
+                    // ЛР№7 SIMULATED DEFECT: "хотфікс SLO" - скоротити паузу вдвічі, але прямим
+                    // ПЕРЕЗАПИСОМ змінної типу M (delayMs), а не локальною копією.
+                    delayMs = delayMs * 0.5;
                     sleeper.sleep((long) Math.min(delayMs, cfg.maxDelayMs));
                     delayMs *= cfg.backoffMultiplier;
                 }
