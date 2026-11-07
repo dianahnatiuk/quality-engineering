@@ -71,45 +71,46 @@ public final class ResilientPricingClient {
         }
     }
 
+    /**
+     * ЛР№7 (PASS): жодної мутабельної змінної. Стан спроби живе в незмінних
+     * Value Objects {@link RetryPolicy} / {@link RetryContext}; замість циклу з
+     * лічильником - рекурсія з новим контекстом (глибина обмежена maxRetries+1).
+     */
     private CallResult executeResilient(String itemId) {
-        long start = System.nanoTime();
-        int attempts = 0;
-        String lastError = null;
-        double delayMs = cfg.baseDelayMs;
+        return attempt(itemId, RetryContext.begin(RetryPolicy.from(cfg)));
+    }
 
-        while (attempts <= cfg.maxRetries) {
-            attempts++;
-            try {
-                double price = call.call(itemId, cfg.requestTimeoutMs);
-                if (attempts > 1) {
-                    log.info("Dependency recovered for " + itemId + " after " + attempts + " attempt(s)");
-                }
-                return new CallResult(true, false, price, attempts, 200, "OK", elapsedMs(start));
-            } catch (DependencyError e) {
-                lastError = e.getMessage();
-                log.warn("Attempt " + attempts + "/" + (cfg.maxRetries + 1) +
-                        " failed for " + itemId + ": " + lastError);
-                if (attempts <= cfg.maxRetries) {
-                    // ЛР№7 SIMULATED DEFECT: "хотфікс SLO" - скоротити паузу вдвічі, але прямим
-                    // ПЕРЕЗАПИСОМ змінної типу M (delayMs), а не локальною копією.
-                    delayMs = delayMs * 0.5;
-                    sleeper.sleep((long) Math.min(delayMs, cfg.maxDelayMs));
-                    delayMs *= cfg.backoffMultiplier;
-                }
-            }
+    private CallResult attempt(final String itemId, final RetryContext ctx) {
+        try {
+            return success(itemId, call.call(itemId, cfg.requestTimeoutMs), ctx);
+        } catch (DependencyError e) {
+            return failed(itemId, ctx, e);
         }
+    }
 
-        log.error("FALLBACK activated for " + itemId + " after " + attempts +
+    private CallResult failed(final String itemId, final RetryContext ctx, final DependencyError e) {
+        log.warn("Attempt " + ctx.number() + "/" + ctx.maxAttempts() +
+                " failed for " + itemId + ": " + e.getMessage());
+        return ctx.canRetry() ? retry(itemId, ctx) : fallback(itemId, ctx, e.getMessage());
+    }
+
+    private CallResult retry(final String itemId, final RetryContext ctx) {
+        sleeper.sleep(ctx.backoffMs());
+        return attempt(itemId, ctx.next());
+    }
+
+    private CallResult success(final String itemId, final double price, final RetryContext ctx) {
+        if (ctx.isRetry()) {
+            log.info("Dependency recovered for " + itemId + " after " + ctx.number() + " attempt(s)");
+        }
+        return new CallResult(true, false, price, ctx.number(), 200, "OK", ctx.elapsedMs());
+    }
+
+    private CallResult fallback(final String itemId, final RetryContext ctx, final String lastError) {
+        log.error("FALLBACK activated for " + itemId + " after " + ctx.number() +
                 " attempts. Last error: " + lastError);
-        return new CallResult(
-                true,
-                true,
-                cfg.fallbackPrice,
-                attempts,
-                200,
-                "degraded:fallback (last_error=" + lastError + ")",
-                elapsedMs(start)
-        );
+        return new CallResult(true, true, cfg.fallbackPrice, ctx.number(), 200,
+                "degraded:fallback (last_error=" + lastError + ")", ctx.elapsedMs());
     }
 
     private static double elapsedMs(long startNanos) {
