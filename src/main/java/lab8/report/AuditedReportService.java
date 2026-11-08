@@ -2,22 +2,22 @@ package lab8.report;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-/** Рівень 2 ієрархії (DIT=2): перевизначає 6 методів батька. */
-public class AuditedReportService extends BaseReportService {
+/** Було: extends BaseReportService. Стало: приватне поле-делегат, що передається через конструктор (DI). */
+public class AuditedReportService implements ReportService {
+    private final ReportService delegate;
     private final List<String> trail = new ArrayList<>();
 
-    @Override public String title() { return "Audited " + super.title(); }
+    public AuditedReportService(ReportService delegate) { this.delegate = Objects.requireNonNull(delegate); }
 
-    @Override public String header() { track("header"); return super.header(); }
+    @Override public String title() { return "Audited " + delegate.title(); }
 
-    @Override public String body() { track("body"); return super.body(); }
+    @Override public String render() { track("render"); return delegate.render() + " [audited]"; }
 
-    @Override public String footer() { track("footer"); return super.footer() + " [audited]"; }
+    @Override public String export(String type) { track("export:" + type); return delegate.export(type); }
 
-    @Override public String format(String text) { return "[A] " + super.format(text); }
-
-    @Override public String render() { track("render"); return super.render(); }
+    @Override public String filename() { return delegate.filename(); }
 
     public void track(String event) { trail.add(event); }
 
