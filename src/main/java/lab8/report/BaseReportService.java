@@ -1,6 +1,8 @@
 package lab8.report;
 
-/** Рівень 1 ієрархії (DIT=1). */
+import java.util.List;
+
+/** Рівень 1 ієрархії. ЗМІНА ДЛЯ КРАШ-ТЕСТУ: render() тепер повертає List<String> (рядки звіту). */
 public class BaseReportService {
 
     public String title() { return "Report"; }
@@ -21,11 +23,12 @@ public class BaseReportService {
 
     public int maxWidth() { return 80; }
 
-    public String render() { return header() + separator() + body() + separator() + footer(); }
+    public List<String> render() { return List.of(header(), body(), footer()); }
 
     public String export(String type) {
-        if ("txt".equals(type)) return render();
-        if ("html".equals(type)) return "<pre>" + render() + "</pre>";
+        String text = String.join(separator(), render());
+        if ("txt".equals(type)) return text;
+        if ("html".equals(type)) return "<pre>" + text + "</pre>";
         throw new IllegalArgumentException("unsupported export type: " + type);
     }
 
