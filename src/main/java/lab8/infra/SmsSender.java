@@ -1,12 +1,13 @@
 package lab8.infra;
 
+import lab8.port.MessageChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SmsSender {
+public class SmsSender implements MessageChannel {
     private final List<String> outbox = new ArrayList<>();
 
-    public void send(String to, String subject, String body) {
+    @Override public void send(String to, String subject, String body) {
         outbox.add(to + "|" + body);
     }
 

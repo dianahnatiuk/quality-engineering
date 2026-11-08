@@ -1,12 +1,13 @@
 package lab8.infra;
 
+import lab8.port.AuditPort;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AuditLogger {
+public class AuditLogger implements AuditPort {
     private final List<String> events = new ArrayList<>();
 
-    public void log(String event) {
+    @Override public void log(String event) {
         events.add(event);
     }
 

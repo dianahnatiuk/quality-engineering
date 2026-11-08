@@ -1,9 +1,10 @@
 package lab8.infra;
 
+import lab8.port.PriceCatalogPort;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PriceCatalog {
+public class PriceCatalog implements PriceCatalogPort {
     private final Map<String, Double> prices = new HashMap<>();
 
     public PriceCatalog() {
@@ -12,7 +13,7 @@ public class PriceCatalog {
         prices.put("C-3", 40.0);
     }
 
-    public double priceOf(String sku) {
+    @Override public double priceOf(String sku) {
         return prices.getOrDefault(sku, 0.0);
     }
 }
