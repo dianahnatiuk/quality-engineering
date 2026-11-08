@@ -1,0 +1,15 @@
+src/main/java/lab8/report/AuditedReportService.java:20: error: render() in AuditedReportService cannot override render() in BaseReportService
+    @Override public String render() { track("render"); return super.render(); }
+                            ^
+  return type String is not compatible with List<String>
+src/main/java/lab8/report/AuditedReportService.java:20: error: method does not override or implement a method from a supertype
+    @Override public String render() { track("render"); return super.render(); }
+    ^
+src/main/java/lab8/report/AuditedReportService.java:20: error: incompatible types: List<String> cannot be converted to String
+    @Override public String render() { track("render"); return super.render(); }
+                                                                           ^
+src/main/java/lab8/report/PremiumReportService.java:26: error: render() in PremiumReportService cannot override render() in BaseReportService
+    @Override public String render() { return watermark + separator() + super.render(); }
+                            ^
+  return type String is not compatible with List<String>
+4 errors

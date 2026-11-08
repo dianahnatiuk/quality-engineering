@@ -1,0 +1,22 @@
+class                                         WMC  CBO  RFC LCOM-HS LCOM4 LCOM-CK  DIT  PIM  NOM  NOO  NOA
+lab8.legacy.OrderProcessor                     24   17   62    0.89     4      19    1    4   11    0    4
+lab8.model.Order                               14    2   18    0.00     0       0    2   12   12    0   12  (record)
+lab8.infra.CurrencyConverter                    3    1    3    0.00     1       0    1    1    1    0    1
+lab8.infra.FraudDetector                        4    1    5    0.00     1       0    1    1    1    0    1
+lab8.infra.InvoiceGenerator                     3    1    6    0.00     1       0    1    1    1    0    1
+lab8.infra.ShippingCalculator                   4    1    3    0.00     1       0    1    1    1    0    1
+lab8.model.OrderResult                         10    1   12    0.00     0       0    2    9    9    0    9  (record)
+lab8.infra.AuditLogger                          3    0    7    0.00     1       0    1    2    2    0    2
+lab8.infra.DiscountEngine                       4    0    4    0.00     1       0    1    1    1    0    1
+lab8.infra.EmailSender                          3    0    7    0.00     1       0    1    2    2    0    2
+lab8.infra.InventoryRepository                  5    0   10    0.00     1       0    1    3    3    0    3
+lab8.infra.LoyaltyService                       3    0    9    0.00     1       0    1    2    2    0    2
+lab8.infra.PaymentGateway                      10    0    9    0.50     2       1    1    3    3    0    3
+lab8.infra.PriceCatalog                         2    0    8    0.00     1       0    1    1    1    0    1
+lab8.infra.SmsSender                            3    0    7    0.00     1       0    1    2    2    0    2
+lab8.infra.TaxCalculator                        2    0    3    0.00     1       0    1    1    1    0    1
+lab8.model.OrderLine                            6    0    7    0.00     0       0    2    5    5    0    5  (record)
+lab8.model.Quote                                9    0   10    0.00     0       0    2    8    8    0    8  (record)
+lab8.model.Region                               4    0    8    0.00     0       0    2   11    2    0    2
+
+MOOD: MHF=10.3%  AHF=100.0%  COF=7.02%  (types=19, couplings=24)

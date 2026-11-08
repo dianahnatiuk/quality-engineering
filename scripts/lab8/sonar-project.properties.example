@@ -1,0 +1,11 @@
+# Скопіюй у корінь проєкту як sonar-project.properties (якщо свого ще немає — інакше лише звір ключі).
+sonar.projectKey=labs3
+sonar.projectName=labs3
+sonar.host.url=http://localhost:9000
+# токен краще передавати змінною середовища:  set SONAR_TOKEN=...   (sonar-scanner читає її автоматично)
+sonar.sources=src/main/java
+sonar.tests=src/test/java
+sonar.java.binaries=target/classes
+sonar.java.test.binaries=target/test-classes
+sonar.java.source=21
+sonar.sourceEncoding=UTF-8

@@ -1,0 +1,19 @@
+src/main/java/lab8/legacy/OrderProcessor.java:59: error: method calculate in class TaxCalculator cannot be applied to given types;
+        double taxRefund = tax.calculate(quote.subtotal() - quote.discount());
+                              ^
+  required: double,Region,boolean
+  found:    double
+  reason: actual and formal argument lists differ in length
+src/main/java/lab8/legacy/OrderProcessor.java:76: error: method calculate in class TaxCalculator cannot be applied to given types;
+        return tax.calculate(subtotal - discounts.discount(order.coupon(), subtotal));
+                  ^
+  required: double,Region,boolean
+  found:    double
+  reason: actual and formal argument lists differ in length
+src/main/java/lab8/legacy/OrderProcessor.java:88: error: method calculate in class TaxCalculator cannot be applied to given types;
+        double taxAmount = tax.calculate(subtotal - discount);
+                              ^
+  required: double,Region,boolean
+  found:    double
+  reason: actual and formal argument lists differ in length
+3 errors
