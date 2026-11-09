@@ -33,18 +33,18 @@ public class ComplexityMeter {
     static final int COGNITIVE_LIMIT = 15;
     static final int CYCLOMATIC_LIMIT = 10;
 
-    record Row(String owner, String method, int line, int lines, int cyc, int cog) {
+    record Row(String file, String owner, String method, int line, int lines, int cyc, int cog) {
         boolean over() { return cog > COGNITIVE_LIMIT || cyc > CYCLOMATIC_LIMIT; }
     }
 
     public static void main(String[] args) throws Exception {
         List<Path> roots = new ArrayList<>();
         boolean failOver = false;
-        String only = null;
+        String only = null; Path csvOut = null;
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
                 case "--fail-over" -> failOver = true;
-                case "--only" -> only = args[++i];
+                case "--only" -> only = args[++i]; case "--csv" -> csvOut = Paths.get(args[++i]);
                 default -> roots.add(Paths.get(args[i]));
             }
         }
@@ -69,7 +69,7 @@ public class ComplexityMeter {
             String f = only;
             rows = rows.stream().filter(r -> (r.owner + "." + r.method).contains(f)).toList();
         }
-        print(rows);
+        print(rows); if (csvOut != null) writeCsv(csvOut, rows);
 
         boolean anyOver = rows.stream().anyMatch(Row::over);
         if (failOver && anyOver) {
@@ -116,7 +116,7 @@ public class ComplexityMeter {
                             cog.scan(m.getBody(), null);
                             String name = m.getName().contentEquals("<init>")
                                     ? owners.peekLast() : m.getName().toString();
-                            rows.add(new Row(String.join(".", owners), name, l1, l2 - l1 + 1,
+                            rows.add(new Row(relativePath(unit), String.join(".", owners), name, l1, l2 - l1 + 1,
                                     cyc.count, cog.score));
                         }
                         return super.visitMethod(m, owners);
@@ -127,6 +127,26 @@ public class ComplexityMeter {
         return rows;
     }
 
+        /** Шлях до файлу відносно поточного каталогу, з прямими слешами (збігається з виводом git). */
+    static String relativePath(CompilationUnitTree unit) {
+        Path abs = Paths.get(unit.getSourceFile().toUri()).toAbsolutePath().normalize();
+        Path cwd = Paths.get("").toAbsolutePath().normalize();
+        Path rel = abs.startsWith(cwd) ? cwd.relativize(abs) : abs;
+        return rel.toString().replace('\\', '/');
+    }
+
+    /** 7: експорт у CSV (file,class,method,line,lines,cyclomatic,cognitive). */
+    static void writeCsv(Path out, List<Row> rows) throws IOException {
+        StringBuilder sb = new StringBuilder("file,class,method,line,lines,cyclomatic,cognitive\n");
+        for (Row r : rows) {
+            sb.append(r.file).append(',').append(r.owner).append(',').append(r.method).append(',')
+              .append(r.line).append(',').append(r.lines).append(',')
+              .append(r.cyc).append(',').append(r.cog).append('\n');
+        }
+        if (out.toAbsolutePath().getParent() != null) Files.createDirectories(out.toAbsolutePath().getParent());
+        Files.writeString(out, sb.toString());
+        System.out.println("CSV report written: " + out);
+    }
     static void print(List<Row> rows) {
         System.out.printf("%-48s %5s %6s %6s %5s%n", "Method", "Line", "Lines", "Cyclo", "Cogn");
         System.out.println("-".repeat(76));
