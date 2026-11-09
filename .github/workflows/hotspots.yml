@@ -1,0 +1,55 @@
+name: hotspots
+
+# ЛР№7, Завдання 3: хмарний збір метрик якості + синергетична матриця Hotspots.
+# Запускається на кожен push та pull request; усе виконується в Docker-контейнері.
+on:
+  push:
+  pull_request:
+
+jobs:
+  hotspots:
+    runs-on: ubuntu-latest
+    container:
+      image: eclipse-temurin:21-jdk      # JDK 21 всередині контейнера (потрібен для сканера)
+    env:
+      CHURN_SINCE: "90 days ago"         # вікно Churn Rate
+      OUT_DIR: hotspot-report
+    steps:
+      - name: Install git inside the container
+        run: apt-get update && apt-get install -y --no-install-recommends git
+
+      - name: Checkout (full history for git log)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0                 # без цього git log бачить лише 1 коміт
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install CLI scanner (build ComplexityMeter + HotspotMatrix)
+        run: |
+          java -version
+          mkdir -p build/tools
+          javac -d build/tools tools/ComplexityMeter.java tools/HotspotMatrix.java
+
+      - name: Scan whole repository -> machine-readable CSV
+        run: |
+          mkdir -p "$OUT_DIR"
+          java -Dstdout.encoding=UTF-8 -cp build/tools ComplexityMeter src/main/java --csv "$OUT_DIR/complexity.csv"
+
+      - name: Collect Churn Rate from git log
+        shell: bash
+        run: |
+          git log --relative --since="$CHURN_SINCE" --format=format: --name-only | grep -Ev '^$' | sort | uniq -c | sort -nr | tee "$OUT_DIR/churn.txt"
+
+      - name: Build Hotspots matrix
+        run: |
+          java -Dstdout.encoding=UTF-8 -cp build/tools HotspotMatrix \
+            --complexity "$OUT_DIR/complexity.csv" --churn "$OUT_DIR/churn.txt" --out "$OUT_DIR"
+          cat "$OUT_DIR/hotspots.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hotspots-report
+          path: hotspot-report/

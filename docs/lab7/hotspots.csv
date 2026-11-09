@@ -1,0 +1,18 @@
+file,methods,cc_sum,cc_max,commits,category
+src/main/java/lab2/resilience/ResilientPricingClient.java,11,16,2,6,Active Development
+src/main/java/lab2/loadtest/LoadTest.java,15,30,4,1,Stable Code
+src/main/java/lab2/service/ExternalService.java,8,21,5,1,Stable Code
+src/main/java/lab2/service/MainService.java,9,20,4,1,Stable Code
+src/main/java/lab4/domain/UserProfile.java,12,12,1,1,Stable Code
+src/main/java/lab2/resilience/RetryContext.java,7,7,1,1,Stable Code
+src/main/java/lab4/domain/UserConsent.java,7,7,1,1,Stable Code
+src/main/java/lab4/domain/Order.java,6,6,1,1,Stable Code
+src/main/java/lab4/service/ConsentEngine.java,3,6,3,1,Stable Code
+src/main/java/lab2/config/PricingClientConfig.java,3,5,3,1,Stable Code
+src/main/java/lab4/logging/PiiSanitizer.java,1,5,5,1,Stable Code
+src/main/java/lab4/service/AnonymizationService.java,2,5,4,1,Stable Code
+src/main/java/lab4/service/DataExportService.java,2,4,3,1,Stable Code
+src/main/java/lab2/resilience/RetryPolicy.java,3,3,1,1,Stable Code
+src/main/java/lab2/resilience/CallResult.java,2,2,1,1,Stable Code
+src/main/java/lab2/resilience/DependencyError.java,2,2,1,1,Stable Code
+src/main/java/lab2/resilience/ResilienceConfig.java,2,2,1,1,Stable Code
